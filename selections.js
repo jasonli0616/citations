@@ -1,3 +1,8 @@
+/**
+ * JavaScript for selections and dropdowns, etc
+ * See ./cite.js for citations
+ */
+
 var authors_amount = 1;
 
 // Show alert
@@ -26,12 +31,12 @@ add_author_btn.addEventListener('click', () => {
     authors_amount += 1;
     let authors_div = document.getElementById('authors');
     authors_div.innerHTML = authors_div.innerHTML + `
-    <div class="author" id="author${authors_amount}">
-        <h4 class="text-white">Author ${authors_amount}</h4>
-        <input type="text" name="author${authors_amount}-fname" id="author${authors_amount}-fname" placeholder="First name">
-        <input type="text" name="author${authors_amount}-mname" id="author${authors_amount}-mname" placeholder="Middle name">
-        <input type="text" name="author${authors_amount}-lname" id="author${authors_amount}-lname" placeholder="Last name">
-    </div>
+        <div class="author" id="author${authors_amount}">
+            <h4 class="text-white">Author ${authors_amount}</h4>
+            <input type="text" class="form-control" name="author1-fname" id="author${authors_amount}-fname" placeholder="First name">
+            <input type="text" class="form-control" name="author1-mname" id="author${authors_amount}-mname" placeholder="Middle name">
+            <input type="text" class="form-control" name="author1-lname" id="author${authors_amount}-lname" placeholder="Last name">
+        </div>
     `;
 });
 
