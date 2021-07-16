@@ -16,7 +16,7 @@ function newAlert(alert, remove=false) {
 document.getElementById('citation-type').addEventListener('change', () => {
     // If not website
     if (document.getElementById('citation-type').value != 'website') {
-        if (window.confirm('This option is not available yet. Open CitationMachine?')) window.open('https://www.citationmachine.net');
+        if (window.confirm('This option is not available yet. Open CitationMachine?')) window.location.href = 'https://www.citationmachine.net';
     }
 })
 
