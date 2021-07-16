@@ -6,7 +6,7 @@
 var authors_amount = 1;
 
 // Show alert
-function newAlert(alert = '') {
+var newAlert = (alert = '') => {
     var alert_section = document.getElementById('alert');
     alert_section.innerHTML = alert;
 }
@@ -14,16 +14,30 @@ function newAlert(alert = '') {
 // Citation type dropdown
 let citation_type = document.getElementById('citation-type');
 citation_type.onchange = () => {
-    if (citation_type.value != 'Website') {
+    if (citation_type.value != 'website') {
         newAlert(`
             <div class="alert alert-danger" role="alert">
                 This option is not available yet.
+                <a href="https://github.com/jasonli0616/citations" target="_blank">Contribute on GitHub.</a>
             </div>
         `);
     } else {
         newAlert();
     }
 };
+let citation_format = document.getElementById('citation-format');
+citation_format.onchange = () => {
+    if (citation_format.value != 'mla8') {
+        newAlert(`
+            <div class="alert alert-danger" role="alert">
+                This option is not available yet.
+                <a href="https://github.com/jasonli0616/citations" target="_blank">Contribute on GitHub.</a>
+            </div>
+        `);
+    } else {
+        newAlert();
+    }
+}
 
 // Add author
 let add_author_btn = document.getElementById('add-author-btn');

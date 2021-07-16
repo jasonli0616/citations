@@ -10,8 +10,9 @@ h1, h2, h3, h4 {
     min-width: 300px;
     max-width: 750px;
     border-radius: 40px;
-    border: 5px solid white;
+    border: 3px solid white;
     padding: 20px;
+    margin-bottom: 30px;
 }
 
 input[type=text] {
