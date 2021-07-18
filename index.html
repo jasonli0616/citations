@@ -42,7 +42,7 @@
         <!-- Title -->
         <div class="pb-3">
             <h4 class="text-light">Info</h4>
-            <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+            <input type="text" class="form-control" name="title" id="title" placeholder="Title" required>
             <input type="text" class="form-control" name="website-title" id="website-title" placeholder="Website title">
             <input type="text" class="form-control" name="publisher" id="publisher" placeholder="Publisher">
         </div>
@@ -50,7 +50,7 @@
         <!-- URL -->
         <div class="pb-3">
             <h4 class="text-light">URL</h4>
-            <input type="text" class="form-control" name="url" id="url" placeholder="URL">
+            <input type="url" class="form-control" name="url" id="url" placeholder="URL" required>
         </div>
 
         <!-- Date -->
@@ -68,7 +68,7 @@
                 <option value="apa7">APA 7</option>
             </select>
             <br>
-            <button class="btn btn-primary" id="cite-id">Cite</button>
+            <button type="button" class="btn btn-primary" id="cite-id">Cite</button>
         </div>
 
         <div class="container">

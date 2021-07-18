@@ -6,7 +6,7 @@
 var authors_amount = 1;
 
 // Show alert
-var newAlert = (alert, remove=false) => {
+function newAlert(alert, remove=false) {
     var alert_section = document.getElementById('alert');
     if (remove) alert_section.innerHTML = alert;
     else alert_section.innerHTML += alert;

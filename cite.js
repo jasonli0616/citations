@@ -4,6 +4,10 @@
  */
 
 document.getElementById('cite-id').addEventListener('click', () => {
+    if (document.getElementById('title').value && document.getElementById('url').value) cite();
+});
+
+function cite() {
     const citation_format = document.getElementById('citation-format');
 
     let authors = [];
@@ -57,7 +61,5 @@ document.getElementById('cite-id').addEventListener('click', () => {
             </div>
         `);
     }
-
-});
 
 };
