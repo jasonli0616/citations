@@ -7,25 +7,18 @@ var authors_amount = 1;
 
 // Show alert
 function newAlert(alert, remove=false) {
-    var alert_section = document.getElementById('alert');
+    let alert_section = document.getElementById('alert');
     if (remove) alert_section.innerHTML = alert;
     else alert_section.innerHTML += alert;
 }
 
-// Citation type dropdown
-let citation_type = document.getElementById('citation-type');
-citation_type.onchange = () => {
-    if (citation_type.value != 'website') {
-        newAlert(`
-            <div class="alert alert-danger" role="alert">
-                This option is not available yet.
-                <a href="https://github.com/jasonli0616/citations" target="_blank">Contribute on GitHub.</a>
-            </div>
-        `, true);
-    } else {
-        newAlert('', true);
+// Citation type change
+document.getElementById('citation-type').addEventListener('change', () => {
+    // If not website
+    if (document.getElementById('citation-type').value != 'website') {
+        if (window.confirm('This option is not available yet. Open CitationMachine?')) window.open('https://www.citationmachine.net');
     }
-};
+})
 
 // Add author
 let add_author_btn = document.getElementById('add-author-btn');
