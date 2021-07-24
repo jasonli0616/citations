@@ -43,8 +43,7 @@ function cite() {
             date_published,
             date_accessed
         )
-    }
-    else if (citation_format.value == 'apa7') {
+    } else if (citation_format.value == 'apa7') {
         cite = new APA7(
             authors,
             title,
@@ -54,6 +53,8 @@ function cite() {
             date_published,
             date_accessed
         )
+    } else {
+        window.alert('Please choose a citation format');
     }
     // Show citation on screen
     newAlert(`
