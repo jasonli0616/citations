@@ -1,16 +1,25 @@
 /**
  * APA7 citation class
+ * TS compiled to JS
  */
 
 class APA7 {
+
+    authors: string;
+    title: string;
+    website_title: string;
+    url: string;
+    date_published: string;
+    date_accessed: string;
+
     constructor(
-        authors, // [[fname, mname, lname], [fname, mname, lname]]
-        title, // str
-        website_title, // str
-        publisher, // str
-        url, // str
-        date_published, // str
-        date_accessed // str
+        authors: Array<String>, // [[fname, mname, lname], [fname, mname, lname]]
+        title: string,
+        website_title: string,
+        publisher: string,
+        url: string,
+        date_published: string,
+        date_accessed: string
     ) {
         this.authors = this.getAuthors(authors);
         this.title = this.getTitle(title) + " ";
@@ -20,7 +29,7 @@ class APA7 {
         this.date_accessed = this.getDate(date_accessed, true);
     }
 
-    getAuthors(authors) {
+    getAuthors(authors: Array<String>): string {
         let authorsString = "";
 
         if (authors.length == 1 && !authors[0][0] && !authors[0][2]) return "";
@@ -45,23 +54,23 @@ class APA7 {
         return authorsString + " ";
     }
 
-    getTitle(title) {
+    getTitle(title: string): string {
         if (title == "") return "";
         if (title.charAt(title.length - 1) != ".") return `"${title}."`
         else return `"${title}"`;
     }
 
-    getWebsiteTitle(website_title) {
+    getWebsiteTitle(website_title: string): string {
         if (website_title == "") return "";
         return `<em>${website_title}</em>,` + " ";
     }
 
-    getURL(url) {
+    getURL(url: string): string {
         if (url == "") return "";
         return `from ${url}.`;
     }
 
-    getDate(date, accessed=false) {
+    getDate(date: string, accessed: boolean = false): string {
         if (!date) return "";
         const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
@@ -73,7 +82,7 @@ class APA7 {
         return `(${dateStr}).` + " ";
     }
 
-    getCitation() {
+    getCitation(): string {
         let citation = "";
         if (!this.authors && this.title) citation += this.title;
         else if (this.authors) citation += this.authors;

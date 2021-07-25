@@ -1,12 +1,13 @@
 /**
  * JavaScript for selections and dropdowns, etc
+ * TS compiled to JS
  * See ./cite.js for citations
  */
 
 var authors_amount = 1;
 
 // Show alert
-function newAlert(alert, remove=false) {
+const newAlert = (alert: string, remove=false) => {
     let alert_section = document.getElementById('alert');
     if (remove) alert_section.innerHTML = alert;
     else alert_section.innerHTML += alert;
@@ -15,7 +16,7 @@ function newAlert(alert, remove=false) {
 // Citation type change
 document.getElementById('citation-type').addEventListener('change', () => {
     // If not website
-    if (document.getElementById('citation-type').value != 'website') {
+    if ((document.getElementById('citation-type') as HTMLInputElement).value != 'website') {
         if (window.confirm('This option is not available yet. Open CitationMachine?')) window.location.href = 'https://www.citationmachine.net';
     }
 })

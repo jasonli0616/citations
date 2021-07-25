@@ -1,34 +1,35 @@
 /**
  * Citation logic
+ * TS compiled to JS
  * See selections.js for form selections and dropdowns, etc
  */
 
 // Run cite() on button click
 document.getElementById('cite-id').addEventListener('click', () => {
-    if (document.getElementById('title').value && document.getElementById('url').value) cite();
+    if ((document.getElementById('title') as HTMLInputElement).value && (document.getElementById('url') as HTMLInputElement).value) cite();
 });
 
 // Main cite() function
-function cite() {
-    const citation_format = document.getElementById('citation-format');
+const cite = () => {
+    const citation_format = document.getElementById('citation-format') as HTMLInputElement;
 
     // Get all authors
     // Format: [[fname, mname, lname], [fname, mname, lname], ]
     let authors = [];
-    for (i=1; i<=authors_amount; i++) {
+    for (let i=1; i<=authors_amount; i++) {
         let author = [];
-        author.push(document.getElementById(`author${i}-fname`).value);
-        author.push(document.getElementById(`author${i}-mname`).value);
-        author.push(document.getElementById(`author${i}-lname`).value);
+        author.push((document.getElementById(`author${i}-fname`) as HTMLInputElement).value);
+        author.push((document.getElementById(`author${i}-mname`) as HTMLInputElement).value);
+        author.push((document.getElementById(`author${i}-lname`) as HTMLInputElement).value);
         authors.push(author);
     }
     // Get other info
-    let title = document.getElementById('title').value;
-    let website_title = document.getElementById('website-title').value;
-    let publisher = document.getElementById('publisher').value;
-    let url = document.getElementById('url').value;
-    let date_published = document.getElementById('publish-date').value;
-    let date_accessed = document.getElementById('access-date').value;
+    let title: string = (document.getElementById('title') as HTMLInputElement).value;
+    let website_title: string = (document.getElementById('website-title') as HTMLInputElement).value;
+    let publisher: string = (document.getElementById('publisher') as HTMLInputElement).value;
+    let url: string = (document.getElementById('url') as HTMLInputElement).value;
+    let date_published: string = (document.getElementById('publish-date') as HTMLInputElement).value;
+    let date_accessed: string = (document.getElementById('access-date') as HTMLInputElement).value;
 
     // Create citation
     // See mla8/js or apa7.js for citation classes

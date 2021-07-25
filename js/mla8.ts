@@ -1,16 +1,25 @@
 /**
  * MLA8 citation class
+ * TS compiled to JS
  */
 
 class MLA8 {
+
+    authors: string;
+    title: string;
+    website_title: string;
+    publisher: string;
+    url: string;
+    date_published: string;
+
     constructor(
-        authors, // [[fname, mname, lname], [fname, mname, lname]]
-        title, // str
-        website_title, // str
-        publisher, // str
-        url, // str
-        date_published, // str
-        date_accessed // str
+        authors: Array<String>, // [[fname, mname, lname], [fname, mname, lname]]
+        title: string,
+        website_title: string,
+        publisher: string,
+        url: string,
+        date_published: string,
+        date_accessed: string
     ) {
         this.authors = this.getAuthors(authors);
         this.title = this.getTitle(title) + " ";
@@ -20,7 +29,7 @@ class MLA8 {
         this.date_published = this.getDate(date_published);
     }
 
-    getAuthors(authors) {
+    getAuthors(authors: Array<String>): string {
         let authorsString = "";
 
         if (authors.length == 1 && !authors[0][0] && !authors[0][2]) return "";
@@ -45,28 +54,28 @@ class MLA8 {
         return authorsString + " ";
     }
 
-    getTitle(title) {
+    getTitle(title: string): string {
         if (title == "") return "";
         if (title.charAt(title.length - 1) != ".") return `"${title}."`
         else return `"${title}"`;
     }
 
-    getWebsiteTitle(website_title) {
+    getWebsiteTitle(website_title: string): string {
         if (website_title == "") return "";
         return `<em>${website_title}</em>,` + " ";
     }
 
-    getPublisher(publisher) {
+    getPublisher(publisher: string): string {
         if (publisher == "") return "";
         return `${publisher},` + " ";
     }
 
-    getURL(url) {
+    getURL(url: string): string {
         if (url == "") return "";
         return `${url}.`;
     }
 
-    getDate(date) {
+    getDate(date: string): string {
         if (!date) return "";
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
@@ -75,7 +84,7 @@ class MLA8 {
         return `${dateStr},` + " ";
     }
 
-    getCitation() {
+    getCitation(): string {
         let citation = "";
         if (this.authors) citation += this.authors;
         if (this.title) citation += this.title;
